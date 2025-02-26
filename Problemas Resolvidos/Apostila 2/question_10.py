@@ -1,0 +1,5 @@
+tempo = float(input('Digite o tempo (em horas) gasto na viagem: '))
+velocidadeMedia = float(input('Digite a velocidade media (em Km/h) gasto na viagem: '))
+print('A distancia: ', numero01 + numero02)
+print('A subtração dos valores: ', numero01 - numero02)
+print('A multiplicação dos valores: ', numero01*numero02)

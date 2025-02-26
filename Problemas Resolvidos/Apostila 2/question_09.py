@@ -1,0 +1,7 @@
+numero01 = float(input('Digite o primeiro valor: '))
+numero02 = float(input('Digite o segundo valor: '))
+print('A soma dos valores: ', numero01 + numero02)
+print('A subtração dos valores: ', numero01 - numero02)
+print('A multiplicação dos valores: ', numero01*numero02)
+if numero02 != 0:print('A divisão dos valores: ', numero01/numero02)
+else:print('Divisao nao definida, pois denominador eh nulo!')
