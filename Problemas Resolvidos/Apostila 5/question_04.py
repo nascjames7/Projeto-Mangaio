@@ -1,21 +1,27 @@
-class Funcionario:
- def __init__(self, nome, salario):
-    self.nome = nome
-    self.salario = salario
+class Veiculo:
+ def __init__(self, modelo, cor):    
+    self.modelo = modelo
+    self.cor = cor
  
  def apresentar(self):
-     print(f'O nome do funcionário(a) é {self.nome} e o salario inicial é {self.salario} reais.')
- 
-nome_do_funcionario = input('Digite o nome do(a) funcionário(a): ')
-salario_do_funcionario = float(input('Digite o salário do(a) funcionário(a): '))
-porcentagem = float(input('Digite a porcentagem do aumento de salário: '))
+     print(f'modelo {self.modelo} e cor{self.cor}') 
 
-class Gerente(Funcionario):
+class Carro(Veiculo):
+    def mostrar_tipo(self):
+        print('tipo: carro')        
+            
+class Moto(Veiculo):
+    def mostrar_tipo(self):
+        print('tipo: moto')
+      
+modelo_do_veiculo01 = input('Digite o modelo do veiculo01: ')
+modelo_do_veiculo02 = input('Digite o modelo do veiculo02: ')
+cor_do_veiculo01 = input('Digite a cor do veiculo 01: ')
+cor_do_veiculo02 = input('Digite a cor do veiculo 02: ')
     
-    def aumentar_salario(self):
-        novo_salario = (salario_do_funcionario * (1 + porcentagem/100))        
-        print(f'O novo salário de {nome_do_funcionario} é {novo_salario} reais.')
-
-funcionario01 = Gerente(nome_do_funcionario, salario_do_funcionario)
-funcionario01.apresentar()
-funcionario01.aumentar_salario()
+veiculo01 = Carro(modelo_do_veiculo01, cor_do_veiculo01)
+veiculo02 = Moto(modelo_do_veiculo02, cor_do_veiculo02)
+veiculo01.apresentar()
+veiculo01.mostrar_tipo()
+veiculo02.apresentar()
+veiculo02.mostrar_tipo()
