@@ -9,5 +9,5 @@ class Aluno:
  
 nome_do_aluno = input('Digite o nome do aluno(a): ')
 nota_do_aluno = float(input('Digite a nota do aluno(a): '))
-aluno1 = Aluno(nome_do_aluno, nota_do_aluno)
-aluno1.apresentar()
+aluno01 = Aluno(nome_do_aluno, nota_do_aluno)
+aluno01.apresentar()
