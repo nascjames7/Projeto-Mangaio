@@ -12,7 +12,11 @@ def cadastrar_usuario():
             print("Usuário(a) já existe. Tente novamente.")
             return
 
-    senha_do_usuario = input("Digite a senha: ")   
+    senha_do_usuario = input("Digite a senha: ")
+    print('Passei 1')
+    while(aprovar_senha(senha_do_usuario) == False):
+        print('Problema detectado!')
+        senha_do_usuario = input("Digite a senha: ")   
     senha_hash = hash_senha(senha_do_usuario)
     
     users.append({'nome': nome_do_usuario, 'senha': senha_hash})
@@ -20,7 +24,7 @@ def cadastrar_usuario():
 
 def login_usuario():
     nome_do_usuario = input("Digite o nome do(a) usuário(a): ")
-    senha_do_usuario = input("Digite a senha: ")
+    senha_do_usuario = input("Digite a senha: ")    
     senha_hash = hash_senha(senha_do_usuario)
     
     for user in users:
