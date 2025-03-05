@@ -1,10 +1,13 @@
 import hashlib
 
+#Declaração da lista.
 users = []
 
+#Método para guardar a senha utilizando uma função hash.
 def hash_senha(senha_do_usuario):
     return hashlib.sha256(senha_do_usuario.encode()).hexdigest()
 
+#Método para cadastrar novo usuário.
 def cadastrar_usuario():
     nome_do_usuario = input('Digite o nome de um(a) usuário(a): ')    
     for user in users:
@@ -12,16 +15,16 @@ def cadastrar_usuario():
             print("Usuário(a) já existe. Tente novamente.")
             return
 
-    senha_do_usuario = input("Digite a senha: ")
-    print('Passei 1')
+    senha_do_usuario = input("Digite a senha: ")    
     while(aprovar_senha(senha_do_usuario) == False):
-        print('Problema detectado!')
+        print('Problema detectadona construção da senha!')
         senha_do_usuario = input("Digite a senha: ")   
     senha_hash = hash_senha(senha_do_usuario)
     
     users.append({'nome': nome_do_usuario, 'senha': senha_hash})
     print(f"Usuário {nome_do_usuario} cadastrado.")
 
+#Método para realizar login.
 def login_usuario():
     nome_do_usuario = input("Digite o nome do(a) usuário(a): ")
     senha_do_usuario = input("Digite a senha: ")    
@@ -35,6 +38,7 @@ def login_usuario():
     print("Nome ou senha incorretos. Talvez estes dados não eestejam cadastrados no sistema!")
     return None
 
+#Método para verifificar se a senha informada obedece as regras de construção.
 def aprovar_senha(senha):
     if len(senha) < 8:
         print('A senha precisa ser constituída por pelo menos 8 caracteres.')
@@ -47,10 +51,10 @@ def aprovar_senha(senha):
         return False
     return True
 
+#Método para atualizar a senha.
 def update_senha(user):
     senha_atual = input('Digite a senha atual: ')
     senha_atual_hash = hash_senha(senha_atual)
-
     option = 1
     
     while((option == 1) and (user['senha'] != senha_atual_hash)):
@@ -67,10 +71,8 @@ def update_senha(user):
         nova_senha_hash = hash_senha(nova_senha)
         user['senha'] = nova_senha_hash
         print("Senha alterada com sucesso.")    
-    
-    #if not update_senha(nova_senha):
-        #return ''
 
+#Método para exibir o menu principal.
 def menu_principal():
     while True:
         print("\n1. Adicionar usuário")
