@@ -50,21 +50,26 @@ def aprovar_senha(senha):
 def update_senha(user):
     senha_atual = input('Digite a senha atual: ')
     senha_atual_hash = hash_senha(senha_atual)
+
+    option = 1
     
-    if user['senha'] != senha_atual_hash:
+    while((option == 1) and (user['senha'] != senha_atual_hash)):
         print('Senha atual incorreta.')
-    return  
+        option = int(input('Para tentar novamente, digite 1. Caso contrário, digite 0.'))
+        if(option == 0):break
+        else:senha_atual = input('Digite a senha atual: ')
+        senha_atual_hash = hash_senha(senha_atual)
         
-
-    nova_senha = input("Digite uma nova senha: ")    
+    if(option == 0):print('Senha atual não foi alterada.')
+        
+    elif((option == 1) and (user['senha'] == senha_atual_hash)):
+        nova_senha = input('Digite uma nova senha: ')
+        nova_senha_hash = hash_senha(nova_senha)
+        user['senha'] = nova_senha_hash
+        print("Senha alterada com sucesso.")    
     
-    if not update_senha(nova_senha):
-        return
-
-    nova_senha_hash = hash_senha(nova_senha)
-    user['senha'] = nova_senha_hash
-    print("Senha alterada com sucesso.")
-
+    #if not update_senha(nova_senha):
+        #return ''
 
 def menu_principal():
     while True:
