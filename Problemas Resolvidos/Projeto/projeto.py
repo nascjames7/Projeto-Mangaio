@@ -33,7 +33,11 @@ def login_usuario():
     for user in users:
         if user['nome'] == nome_do_usuario and user['senha'] == senha_hash:
             print("Login bem-sucedido!")
-            return user 
+            return user
+
+    print('Erro detectado no processo de realização do login! As explicações mais prováveis são: ')
+    print('\n(1) Usuário ou senha incorretos.') 
+    print('(2) Usuário não está cadastrado.')
             
     return None
 
@@ -93,9 +97,9 @@ def menu_principal():
                     if opcao_logado == '1':
                         update_senha(usuario_logado)
                     elif opcao_logado == '2':
+                        print('Você será encaminhado ao menu principal!')
                         break
-            else:
-                print("Usuário ou senha incorretos.")        
+                                   
         elif opcao == '3':
             print("É necesssário estar conectado para alterar a senha.")
         elif opcao == '4':
