@@ -17,7 +17,7 @@ def cadastrar_usuario():
 
     senha_do_usuario = input("Digite a senha: ")    
     while(aprovar_senha(senha_do_usuario) == False):
-        print('Problema detectadona construção da senha!')
+        print('Problema detectado na construção da senha!')
         senha_do_usuario = input("Digite a senha: ")   
     senha_hash = hash_senha(senha_do_usuario)
     
@@ -33,9 +33,8 @@ def login_usuario():
     for user in users:
         if user['nome'] == nome_do_usuario and user['senha'] == senha_hash:
             print("Login bem-sucedido!")
-            return user  
-    
-    print("Nome ou senha incorretos. Talvez estes dados não eestejam cadastrados no sistema!")
+            return user 
+            
     return None
 
 #Método para verifificar se a senha informada obedece as regras de construção.
@@ -79,7 +78,7 @@ def menu_principal():
         print("2. Realizar login")
         print("3. Atualizar senha")
         print("4. Sair")
-        opcao = input("Digite uma opção: ")
+        opcao = input("\nDigite uma opção: ")
 
         if opcao == '1':
             cadastrar_usuario()
@@ -89,12 +88,14 @@ def menu_principal():
                 while True:
                     print("\n1. Alterar senha")
                     print("2. Sair")
-                    opcao_logado = input("Escolha uma opção: ")
+                    opcao_logado = input("\nEscolha uma opção: ")
 
                     if opcao_logado == '1':
                         update_senha(usuario_logado)
                     elif opcao_logado == '2':
                         break
+            else:
+                print("Usuário ou senha incorretos.")        
         elif opcao == '3':
             print("É necesssário estar conectado para alterar a senha.")
         elif opcao == '4':
